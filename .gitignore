@@ -1,0 +1,42 @@
+# Sensitive credentials
+client_secrets.json
+credentials.json
+settings.yaml
+
+# Logs
+invoice_agent.log
+
+# Virtual environment
+venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.suo
+*.swp
+*.bak
+
+# Test artifacts & tools output
+.pytest_cache/
+coverage/
+*.log
+test_invoice.json
+
+# Build / distribution
+build/
+dist/
+*.egg-info/
+
+# LangChain / Ollama caches (if any)
+*.sqlite3
+
+temp_downloads/
