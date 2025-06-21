@@ -67,7 +67,7 @@ create table public.extracted_information (
   "Shipping Address" character varying null,
   "Document Type" text null,
   "Company Address" character varying null,
-  "Flag" boolean null,
+  "flagged" boolean null,
   "Received_From" character varying null,
   file_id character varying not null,
   created_at timestamp with time zone null default (now() AT TIME ZONE 'ist'::text),
