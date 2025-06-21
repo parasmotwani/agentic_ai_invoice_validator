@@ -46,11 +46,16 @@ with both `file_id` and the final `is_valid` value (true/false) after completing
 
 4. **Decide Flag**:
 
-   - If all checks pass, set `flagged = true`.
-   - If any check fails, set `flagged = false`.
+   - If all checks pass, set `flagged = false`.
+   - If any check fails, set `flagged = true`.
 
 5. **Update Supabase**:
-   Use `update_flagged(file_id, flagged)` tool and set `visited = true`.
+   Use `update_flagged(file_id, is_valid)` tool where:
+     - `is_valid = true` means invoice is valid (`flagged = false`)
+     - `is_valid = false` means invoice is invalid (`flagged = true`)
+
+- Note: flagged = true means invoice is invalid; flagged = false means invoice is valid.
+Always call update_flagged with the is_valid value, not directly with flagged.
 
 6. **If Validation Fails**:
 
