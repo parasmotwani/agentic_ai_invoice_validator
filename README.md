@@ -1,4 +1,3 @@
-
 # Agentic AI Invoice Validator
 
 An AI-powered, agent-based invoice validation system that automates document ingestion, information extraction via OCR, and intelligent validation using a local LLM. Valid invoices are uploaded to cloud storage, while invalid ones trigger notifications.
@@ -28,6 +27,7 @@ Agentic AI Invoice Validator is built for automating the tedious task of verifyi
 3. Validation agent checks invoice details using rules + LLM
 4. If an invoice is valid then the invoice data is pushed to 'invoice_status' table
 5. If an invoice is invalid a follow-up mail is sent to the sender
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
@@ -46,7 +46,22 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
-### 3. Setup Supabase tables
+
+### 3. Setup Ollama
+
+Install mistral model
+
+```bash
+ollama pull mistral
+```
+
+Run mistral
+
+```bash
+ollama run mistral
+```
+
+### 4. Setup Supabase tables
 
 Create two tables 'extracted_information' and 'invoice_status'
 
@@ -124,10 +139,11 @@ python main.py
 ```
 
 This will:
+
 - Check Gmail for new invoice attachments
 - Extract content using OCR
 - Validate invoices using rules + LLM
-- Upload valid ones to Drive, flag invalid ones
+- Upload data for valid ones to another table, flag invalid ones
 
 ## Future Enhancements
 
@@ -141,4 +157,4 @@ This will:
 ## Contact
 
 Made by Paras Motwani  
-LinkedIn: https://www.linkedin.com/in/paras-motwani1/  
+LinkedIn: https://www.linkedin.com/in/paras-motwani1/
